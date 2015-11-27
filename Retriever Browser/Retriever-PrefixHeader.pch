@@ -1,0 +1,16 @@
+//
+//  Retriever-PrefixHeader.pch
+//  Retriever Browser
+//
+//  Created by Mark on 15/11/27.
+//  Copyright © 2015年 Wecan Studio. All rights reserved.
+//
+
+#ifndef Retriever_PrefixHeader_pch
+#define Retriever_PrefixHeader_pch
+
+#define UI_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
+#define UI_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define UI_NAVIGATIONBAR_HEIGHT 64
+
+#endif /* Retriever_PrefixHeader_pch */

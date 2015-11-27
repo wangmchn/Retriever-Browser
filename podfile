@@ -1,0 +1,3 @@
+pod 'Masonry'
+pod 'IQKeyboardManager'
+pod 'WMPageController'

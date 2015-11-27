@@ -9,6 +9,8 @@
 #ifndef Retriever_PrefixHeader_pch
 #define Retriever_PrefixHeader_pch
 
+#import <Masonry/Masonry.h>
+
 #define UI_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define UI_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define UI_NAVIGATIONBAR_HEIGHT 64

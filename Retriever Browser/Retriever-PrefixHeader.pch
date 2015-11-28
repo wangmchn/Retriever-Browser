@@ -10,9 +10,19 @@
 #define Retriever_PrefixHeader_pch
 
 #import <Masonry/Masonry.h>
+#import "UIViewAdditions.h"
 
 #define UI_SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define UI_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define UI_NAVIGATIONBAR_HEIGHT 64
+#define UI_TABBAR_HEIGHT 44
+
+#ifndef RGBCOLOR
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#endif
+
+#ifndef RGBACOLOR
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#endif
 
 #endif /* Retriever_PrefixHeader_pch */

@@ -9,12 +9,13 @@
 #import "RBHomePageController.h"
 #import "RBCommonlyUsedController.h"
 #import "RBWebAddressController.h"
+#import "RBSearchHeaderView.h"
 
 @interface RBHomePageController ()
-
+@property (nonatomic, strong) RBSearchHeaderView *headerView;
 @end
 
-static CGFloat const RBHomePageToolBarHeight = 44.0;
+static CGFloat const RBHomePageViewOriginY   = 75;
 @implementation RBHomePageController
 
 - (instancetype)init {
@@ -26,7 +27,8 @@ static CGFloat const RBHomePageToolBarHeight = 44.0;
         self.menuItemWidth = 60;
         self.menuViewStyle = WMMenuViewStyleDefault;
         self.titleSizeSelected = 15;
-        self.viewFrame = CGRectMake(0, UI_NAVIGATIONBAR_HEIGHT, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - UI_NAVIGATIONBAR_HEIGHT - RBHomePageToolBarHeight);
+        self.viewFrame = CGRectMake(0, RBHomePageViewOriginY, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - RBHomePageViewOriginY - UI_TABBAR_HEIGHT);
+        self.titleColorSelected = RGBCOLOR(255, 102, 51);
     }
     return self;
 }
@@ -35,12 +37,25 @@ static CGFloat const RBHomePageToolBarHeight = 44.0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
-    
+    [self createHeaderView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Private Methods
+- (void)createHeaderView {
+    self.headerView = [[RBSearchHeaderView alloc] init];
+    [self.view addSubview:self.headerView];
+    
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@10);
+        make.right.equalTo(@(-10));
+        make.top.equalTo(@40);
+        make.height.equalTo(@30);
+    }];
 }
 
 @end

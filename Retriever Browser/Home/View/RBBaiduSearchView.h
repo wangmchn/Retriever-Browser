@@ -1,14 +1,13 @@
 //
-//  RBSearchHeaderView.h
+//  RBBaiduSearchView.h
 //  Retriever Browser
 //
-//  Created by Mark on 15/11/27.
+//  Created by Mark on 15/11/28.
 //  Copyright © 2015年 Wecan Studio. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface RBSearchHeaderView : UIView <UITextFieldDelegate>
+@interface RBBaiduSearchView : UIView
 @property (nonatomic, strong) UITextField *searchBar;
-@property (nonatomic, strong) UIButton *QRScanner;
 @end

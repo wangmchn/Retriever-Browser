@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RBHomePageController.h"
+#import "RBNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     RBHomePageController *pageController = [[RBHomePageController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:pageController];
+    RBNavigationController *nav = [[RBNavigationController alloc] initWithRootViewController:pageController];
     self.window.rootViewController = nav;
     return YES;
 }

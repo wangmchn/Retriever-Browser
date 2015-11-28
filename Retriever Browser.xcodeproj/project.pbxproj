@@ -15,14 +15,16 @@
 		4D1B0B211BF4EC3D00D7DE17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B0B1F1BF4EC3D00D7DE17 /* LaunchScreen.storyboard */; };
 		4D1B0B2C1BF4EC3D00D7DE17 /* Retriever_BrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0B2B1BF4EC3D00D7DE17 /* Retriever_BrowserTests.m */; };
 		4D1B0B371BF4EC3D00D7DE17 /* Retriever_BrowserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0B361BF4EC3D00D7DE17 /* Retriever_BrowserUITests.m */; };
+		4D7AC3DB1C09928F000963DA /* RBFooterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3DA1C09928F000963DA /* RBFooterControl.m */; };
+		4D7AC3F01C09A196000963DA /* RBBaiduSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3EF1C09A196000963DA /* RBBaiduSearchView.m */; };
+		4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3F31C09A518000963DA /* RBWebViewController.m */; };
 		4DE57CD41C085405004CB064 /* RBCommonlyUsedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CCB1C085405004CB064 /* RBCommonlyUsedController.m */; };
 		4DE57CD51C085405004CB064 /* RBWebAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CCD1C085405004CB064 /* RBWebAddressController.m */; };
 		4DE57CD61C085405004CB064 /* RBHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CD01C085405004CB064 /* RBHomePageController.m */; };
 		4DE57CD71C085405004CB064 /* RBSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CD31C085405004CB064 /* RBSearchHeaderView.m */; };
-		4DE57CE11C08540B004CB064 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CDC1C08540B004CB064 /* NJKWebViewProgress.m */; };
-		4DE57CE21C08540B004CB064 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CDE1C08540B004CB064 /* NJKWebViewProgressView.m */; };
-		4DE57CE31C08540B004CB064 /* RxWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CE01C08540B004CB064 /* RxWebViewController.m */; };
 		4DE57CE81C085416004CB064 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CE71C085416004CB064 /* UINavigationBar+Awesome.m */; };
+		4DE57CEC1C08580C004CB064 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CEB1C08580C004CB064 /* UIViewAdditions.m */; };
+		4DE57CF21C08AAB8004CB064 /* RBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CF11C08AAB8004CB064 /* RBNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,12 @@
 		4D1B0B321BF4EC3D00D7DE17 /* Retriever BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retriever BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1B0B361BF4EC3D00D7DE17 /* Retriever_BrowserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Retriever_BrowserUITests.m; sourceTree = "<group>"; };
 		4D1B0B381BF4EC3D00D7DE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D7AC3D91C09928F000963DA /* RBFooterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBFooterControl.h; sourceTree = "<group>"; };
+		4D7AC3DA1C09928F000963DA /* RBFooterControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBFooterControl.m; sourceTree = "<group>"; };
+		4D7AC3EE1C09A196000963DA /* RBBaiduSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBBaiduSearchView.h; sourceTree = "<group>"; };
+		4D7AC3EF1C09A196000963DA /* RBBaiduSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBBaiduSearchView.m; sourceTree = "<group>"; };
+		4D7AC3F21C09A518000963DA /* RBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBWebViewController.h; path = WebViewController/RBWebViewController.h; sourceTree = "<group>"; };
+		4D7AC3F31C09A518000963DA /* RBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBWebViewController.m; path = WebViewController/RBWebViewController.m; sourceTree = "<group>"; };
 		4DE57CA11C083F7E004CB064 /* Retriever-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Retriever-PrefixHeader.pch"; sourceTree = "<group>"; };
 		4DE57CCA1C085405004CB064 /* RBCommonlyUsedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCommonlyUsedController.h; sourceTree = "<group>"; };
 		4DE57CCB1C085405004CB064 /* RBCommonlyUsedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCommonlyUsedController.m; sourceTree = "<group>"; };
@@ -66,14 +74,12 @@
 		4DE57CD01C085405004CB064 /* RBHomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBHomePageController.m; sourceTree = "<group>"; };
 		4DE57CD21C085405004CB064 /* RBSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBSearchHeaderView.h; sourceTree = "<group>"; };
 		4DE57CD31C085405004CB064 /* RBSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBSearchHeaderView.m; sourceTree = "<group>"; };
-		4DE57CDB1C08540B004CB064 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
-		4DE57CDC1C08540B004CB064 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
-		4DE57CDD1C08540B004CB064 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		4DE57CDE1C08540B004CB064 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		4DE57CDF1C08540B004CB064 /* RxWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RxWebViewController.h; sourceTree = "<group>"; };
-		4DE57CE01C08540B004CB064 /* RxWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RxWebViewController.m; sourceTree = "<group>"; };
 		4DE57CE61C085416004CB064 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		4DE57CE71C085416004CB064 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		4DE57CEA1C08580C004CB064 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		4DE57CEB1C08580C004CB064 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		4DE57CF01C08AAB8004CB064 /* RBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBNavigationController.h; sourceTree = "<group>"; };
+		4DE57CF11C08AAB8004CB064 /* RBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBNavigationController.m; sourceTree = "<group>"; };
 		588ECB51FEDBA91F39FE5C9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		63387C8A054D91B730B4B144 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E9E4B029C08366BBF9B08E0A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +145,7 @@
 		4D1B0B101BF4EC3D00D7DE17 /* Retriever Browser */ = {
 			isa = PBXGroup;
 			children = (
+				4D7AC3F11C09A4F5000963DA /* WebViewController */,
 				4DE57CE41C085416004CB064 /* Additions */,
 				4DE57CD81C08540B004CB064 /* Utils */,
 				4DE57CC71C085405004CB064 /* Home */,
@@ -150,14 +157,11 @@
 		4D1B0B111BF4EC3D00D7DE17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4D1B0B1D1BF4EC3D00D7DE17 /* Assets.xcassets */,
+				4DE57CE91C08546B004CB064 /* Others */,
 				4DE57CA11C083F7E004CB064 /* Retriever-PrefixHeader.pch */,
-				4D1B0B1A1BF4EC3D00D7DE17 /* Main.storyboard */,
-				4D1B0B1F1BF4EC3D00D7DE17 /* LaunchScreen.storyboard */,
-				4D1B0B221BF4EC3D00D7DE17 /* Info.plist */,
 				4D1B0B141BF4EC3D00D7DE17 /* AppDelegate.h */,
 				4D1B0B151BF4EC3D00D7DE17 /* AppDelegate.m */,
-				4D1B0B121BF4EC3D00D7DE17 /* main.m */,
+				4D1B0B1D1BF4EC3D00D7DE17 /* Assets.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,6 +184,15 @@
 			path = "Retriever BrowserUITests";
 			sourceTree = "<group>";
 		};
+		4D7AC3F11C09A4F5000963DA /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D7AC3F21C09A518000963DA /* RBWebViewController.h */,
+				4D7AC3F31C09A518000963DA /* RBWebViewController.m */,
+			);
+			name = WebViewController;
+			sourceTree = "<group>";
+		};
 		4DE57CC71C085405004CB064 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +207,8 @@
 			children = (
 				4DE57CC91C085405004CB064 /* ChildViewController */,
 				4DE57CCE1C085405004CB064 /* ParentViewController */,
+				4DE57CF01C08AAB8004CB064 /* RBNavigationController.h */,
+				4DE57CF11C08AAB8004CB064 /* RBNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -223,6 +238,10 @@
 			children = (
 				4DE57CD21C085405004CB064 /* RBSearchHeaderView.h */,
 				4DE57CD31C085405004CB064 /* RBSearchHeaderView.m */,
+				4D7AC3D91C09928F000963DA /* RBFooterControl.h */,
+				4D7AC3DA1C09928F000963DA /* RBFooterControl.m */,
+				4D7AC3EE1C09A196000963DA /* RBBaiduSearchView.h */,
+				4D7AC3EF1C09A196000963DA /* RBBaiduSearchView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,35 +249,15 @@
 		4DE57CD81C08540B004CB064 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				4DE57CD91C08540B004CB064 /* RxWebViewController */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		4DE57CD91C08540B004CB064 /* RxWebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4DE57CDA1C08540B004CB064 /* NJKWebViewProgress */,
-				4DE57CDF1C08540B004CB064 /* RxWebViewController.h */,
-				4DE57CE01C08540B004CB064 /* RxWebViewController.m */,
-			);
-			path = RxWebViewController;
-			sourceTree = "<group>";
-		};
-		4DE57CDA1C08540B004CB064 /* NJKWebViewProgress */ = {
-			isa = PBXGroup;
-			children = (
-				4DE57CDB1C08540B004CB064 /* NJKWebViewProgress.h */,
-				4DE57CDC1C08540B004CB064 /* NJKWebViewProgress.m */,
-				4DE57CDD1C08540B004CB064 /* NJKWebViewProgressView.h */,
-				4DE57CDE1C08540B004CB064 /* NJKWebViewProgressView.m */,
-			);
-			path = NJKWebViewProgress;
 			sourceTree = "<group>";
 		};
 		4DE57CE41C085416004CB064 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				4DE57CEA1C08580C004CB064 /* UIViewAdditions.h */,
+				4DE57CEB1C08580C004CB064 /* UIViewAdditions.m */,
 				4DE57CE51C085416004CB064 /* UINavigation+Awesome */,
 			);
 			path = Additions;
@@ -271,6 +270,17 @@
 				4DE57CE71C085416004CB064 /* UINavigationBar+Awesome.m */,
 			);
 			path = "UINavigation+Awesome";
+			sourceTree = "<group>";
+		};
+		4DE57CE91C08546B004CB064 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4D1B0B1A1BF4EC3D00D7DE17 /* Main.storyboard */,
+				4D1B0B1F1BF4EC3D00D7DE17 /* LaunchScreen.storyboard */,
+				4D1B0B221BF4EC3D00D7DE17 /* Info.plist */,
+				4D1B0B121BF4EC3D00D7DE17 /* main.m */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		C24699A3C70C0AC7B47DCC15 /* Frameworks */ = {
@@ -462,15 +472,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7AC3DB1C09928F000963DA /* RBFooterControl.m in Sources */,
 				4D1B0B161BF4EC3D00D7DE17 /* AppDelegate.m in Sources */,
+				4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */,
 				4DE57CD71C085405004CB064 /* RBSearchHeaderView.m in Sources */,
 				4D1B0B131BF4EC3D00D7DE17 /* main.m in Sources */,
+				4DE57CEC1C08580C004CB064 /* UIViewAdditions.m in Sources */,
+				4DE57CF21C08AAB8004CB064 /* RBNavigationController.m in Sources */,
 				4DE57CD41C085405004CB064 /* RBCommonlyUsedController.m in Sources */,
-				4DE57CE31C08540B004CB064 /* RxWebViewController.m in Sources */,
+				4D7AC3F01C09A196000963DA /* RBBaiduSearchView.m in Sources */,
 				4DE57CD61C085405004CB064 /* RBHomePageController.m in Sources */,
 				4DE57CD51C085405004CB064 /* RBWebAddressController.m in Sources */,
-				4DE57CE11C08540B004CB064 /* NJKWebViewProgress.m in Sources */,
-				4DE57CE21C08540B004CB064 /* NJKWebViewProgressView.m in Sources */,
 				4DE57CE81C085416004CB064 /* UINavigationBar+Awesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

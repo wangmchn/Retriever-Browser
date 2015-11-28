@@ -54,11 +54,7 @@
 
 - (void)jumpToWebsite {
     NSString *strURL = self.searchBar.text;
-    if (![strURL containsString:@"http://"] && ![strURL containsString:@"https://"]) {
-        strURL = [NSString stringWithFormat:@"http://%s",[self.searchBar.text UTF8String]];
-    }
-    NSURL *url = [NSURL URLWithString:strURL];
-    RBWebViewController *webViewController = [[RBWebViewController alloc] initWithUrl:url];
+    RBWebViewController *webViewController = [[RBWebViewController alloc] initWithStrURL:strURL];
     [self.viewController.navigationController pushViewController:webViewController animated:YES];
 }
 

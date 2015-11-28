@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RBWebViewController : UIViewController
-
+@property (nonatomic, copy) NSString *strURL;
 @property (nonatomic, strong) UIWebView *webView;
 
-- (instancetype)initWithStrURL:(NSString *)strUrl;
-
-- (instancetype)initWithURL:(NSURL *)url;
+- (instancetype)initWithStrURL:(NSString *)strURL;
 
 @end

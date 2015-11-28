@@ -15,10 +15,40 @@ static CGFloat const RBWebViewOriginY = 20.0;
 
 @implementation RBWebViewController
 
+- (instancetype)initWithStrURL:(NSString *)strURL {
+    if (self = [super init]) {
+        self.strURL = strURL;
+    }
+    return self;
+}
+
+- (void)setStrURL:(NSString *)strURL {
+    if (![strURL containsString:@"http://"] && ![strURL containsString:@"https://"]) {
+        _strURL = [NSString stringWithFormat:@"http://%s",[strURL UTF8String]];
+        return;
+    }
+    _strURL = strURL;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self loadWebView];
+}
+
+- (void)loadWebView {
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, RBWebViewOriginY, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - RBWebViewOriginY - UI_TABBAR_HEIGHT)];
+    self.webView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.webView];
+    
+    [self startRequest];
+}
+
+- (void)startRequest {
+    NSURL *url = [NSURL URLWithString:self.strURL];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
+    [self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

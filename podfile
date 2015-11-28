@@ -1,3 +1,4 @@
 pod 'Masonry'
 pod 'IQKeyboardManager'
 pod 'WMPageController'
+pod 'NJKWebViewProgress'

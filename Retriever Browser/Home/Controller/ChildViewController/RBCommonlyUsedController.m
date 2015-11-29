@@ -7,6 +7,7 @@
 //
 
 #import "RBCommonlyUsedController.h"
+#import "RBBaiduSearchView.h"
 
 @interface RBCommonlyUsedController ()
 
@@ -17,15 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self createBaiduSearchView];
+}
+
+- (void)createBaiduSearchView {
+    CGFloat searchViewX = 40;
+    CGFloat searchViewY = 20;
+    CGRect frame = CGRectMake(searchViewX, searchViewY, UI_SCREEN_WIDTH - searchViewX * 2, 35);
+    RBBaiduSearchView *searchView = [[RBBaiduSearchView alloc] initWithFrame:frame];
+    [self.view addSubview:searchView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
 }
 
 @end

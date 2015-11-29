@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <NJKWebViewProgress.h>
+#import <NJKWebViewProgressView.h>
 
-@interface RBWebViewController : UIViewController
+@interface RBWebViewController : UIViewController<NJKWebViewProgressDelegate, UIWebViewDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 @property (nonatomic, copy) NSString *strURL;
 @property (nonatomic, strong) UIWebView *webView;
 
 - (instancetype)initWithStrURL:(NSString *)strURL;
-
+- (void)reloadWebView;
 @end

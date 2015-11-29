@@ -9,7 +9,7 @@
 #import "RBNavigationController.h"
 #import "RBFooterControl.h"
 
-@interface RBNavigationController ()
+@interface RBNavigationController () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self createFooterControl];
+//    [self createFooterControl];
 }
 
 - (void)createFooterControl {
@@ -29,6 +29,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 @end

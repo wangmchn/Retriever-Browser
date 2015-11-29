@@ -7,17 +7,26 @@
 //
 
 #import "RBWebViewController.h"
+#import "RBFooterControl.h"
 
-static CGFloat const RBWebViewOriginY = 20.0;
+static CGFloat const RBWebViewOriginY = 64.0;
+
 @interface RBWebViewController ()
-
+@property (nonatomic, strong) NJKWebViewProgress *progressProxy;
+@property (nonatomic, strong) NJKWebViewProgressView *progressView;
+@property (nonatomic, strong) UISearchBar *searchBar;
 @end
 
 @implementation RBWebViewController
 
+- (void)reloadWebView {
+    [self startRequest];
+}
+
 - (instancetype)initWithStrURL:(NSString *)strURL {
     if (self = [super init]) {
         self.strURL = strURL;
+        self.automaticallyAdjustsScrollViewInsets = NO;
     }
     return self;
 }
@@ -34,7 +43,28 @@ static CGFloat const RBWebViewOriginY = 20.0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    [self createSearchBar];
+    [self createFooterControl];
     [self loadWebView];
+    [self startRequest];
+}
+
+#pragma mark - Private
+- (void)createFooterControl {
+    RBFooterControl *footer = [[RBFooterControl alloc] initWithFrame:CGRectMake(0, UI_SCREEN_HEIGHT - UI_TABBAR_HEIGHT, UI_SCREEN_WIDTH, UI_TABBAR_HEIGHT)];
+    [self.view addSubview:footer];
+}
+
+- (void)createSearchBar {
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 15, UI_SCREEN_WIDTH, 44)];
+    self.searchBar.placeholder = self.strURL;
+    self.searchBar.delegate = self;
+    self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    [self.view addSubview:self.searchBar];
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 63, UI_SCREEN_WIDTH, 0.5)];
+    line.backgroundColor = RGBCOLOR(191, 191, 191);
+    [self.view addSubview:line];
 }
 
 - (void)loadWebView {
@@ -42,7 +72,21 @@ static CGFloat const RBWebViewOriginY = 20.0;
     self.webView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.webView];
     
-    [self startRequest];
+    self.progressProxy = [[NJKWebViewProgress alloc] init];
+    self.webView.delegate = _progressProxy;
+    self.progressProxy.webViewProxyDelegate = self;
+    self.progressProxy.progressDelegate = self;
+    
+    CGFloat progressBarHeight = 2.0f;
+    CGRect barFrame = CGRectMake(0, UI_SCREEN_HEIGHT - UI_TABBAR_HEIGHT - progressBarHeight, UI_SCREEN_WIDTH, progressBarHeight);
+    self.progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
+    self.progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [self.view addSubview:self.progressView];
+    
+    UIScrollView *scrollView = (UIScrollView *)self.webView.subviews[0];
+    if ([scrollView isKindOfClass:[UIScrollView class]]) {
+        scrollView.delegate = self;
+    }
 }
 
 - (void)startRequest {
@@ -51,9 +95,39 @@ static CGFloat const RBWebViewOriginY = 20.0;
     [self.webView loadRequest:request];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)searchBarResignFirstResponderIfNeeded {
+    if (self.searchBar.isFirstResponder) {
+        [self.searchBar resignFirstResponder];
+    }
+}
+
+#pragma mark - <UISearchBarDelegate>
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    searchBar.placeholder = @"请输入网址";
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    searchBar.placeholder = self.title;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.strURL = searchBar.text;
+    [self reloadWebView];
+}
+
+#pragma mark - <UISrollViewDelegate>
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self searchBarResignFirstResponderIfNeeded];
+}
+
+#pragma mark - <UIWebViewDelegate>
+
+#pragma mark - <NJKWebViewProgressDelegate>
+- (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {
+    self.progressView.progress = progress;
+    self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.searchBar.placeholder = self.title;
+    self.searchBar.text = @"";
 }
 
 @end

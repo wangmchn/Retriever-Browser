@@ -56,6 +56,7 @@
     NSString *strURL = self.searchBar.text;
     RBWebViewController *webViewController = [[RBWebViewController alloc] initWithStrURL:strURL];
     [self.viewController.navigationController pushViewController:webViewController animated:YES];
+    [self.searchBar resignFirstResponder];
 }
 
 @end

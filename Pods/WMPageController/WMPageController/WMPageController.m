@@ -482,7 +482,8 @@
     _selectIndex = (int)index;
     _animate = NO;
     CGPoint targetP = CGPointMake(_viewWidth*index, 0);
-    
+    NSLog(@"%lf",_viewWidth);
+    NSLog(@"%@",self.childViewFrames);
     [self.scrollView setContentOffset:targetP animated:gap > 1 ? NO : self.pageAnimatable];
     if (gap > 1 || !self.pageAnimatable) {
         // 由于不触发 -scrollViewDidScroll: 手动处理控制器

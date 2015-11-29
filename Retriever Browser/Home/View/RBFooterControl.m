@@ -7,7 +7,9 @@
 //
 
 #import "RBFooterControl.h"
+#import "RBWebViewController.h"
 
+static NSInteger const RBFooterButtonTagOffset = 6250;
 @implementation RBFooterControl
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -35,7 +37,38 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * buttonWidth, 0, buttonWidth, UI_TABBAR_HEIGHT)];
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_footer_%d", i]];
         [button setImage:image forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag = RBFooterButtonTagOffset + i;
+        
         [self addSubview:button];
+    }
+}
+
+- (void)buttonClicked:(UIButton *)sender {
+    UINavigationController *nav = (UINavigationController *)self.viewController.navigationController;
+    UIViewController *viewController = [nav.viewControllers lastObject];
+    
+    if (sender.tag == RBFooterButtonTagOffset + 3) { // 书签
+        
+        return;
+    }
+    if (![viewController isKindOfClass:[RBWebViewController class]]) { return; }
+
+    
+    RBWebViewController *webViewController = (RBWebViewController *)viewController;
+    if (sender.tag == RBFooterButtonTagOffset + 0) {
+        if (webViewController.webView.canGoBack) {
+            [webViewController.webView goBack];
+            return;
+        }
+        [nav popViewControllerAnimated:YES];
+    }
+    
+    if (sender.tag == RBFooterButtonTagOffset + 1) {
+        if (webViewController.webView.canGoForward) {
+            [webViewController.webView goForward];
+            return;
+        }
     }
 }
 

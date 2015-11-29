@@ -27,7 +27,9 @@ static CGFloat const RBHomePageViewOriginY   = 75;
         self.menuItemWidth = 60;
         self.menuViewStyle = WMMenuViewStyleDefault;
         self.titleSizeSelected = 15;
-        self.viewFrame = CGRectMake(0, RBHomePageViewOriginY, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - RBHomePageViewOriginY - UI_TABBAR_HEIGHT);
+        self.viewFrame = CGRectMake(0, RBHomePageViewOriginY, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - RBHomePageViewOriginY);
+        self.pageAnimatable = YES;
+        self.bounces = YES;
         self.titleColorSelected = RGBCOLOR(255, 102, 51);
     }
     return self;
@@ -56,6 +58,11 @@ static CGFloat const RBHomePageViewOriginY   = 75;
         make.top.equalTo(@40);
         make.height.equalTo(@30);
     }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [super scrollViewDidScroll:scrollView];
+//    NSLog(@"%lf",scrollView.contentOffset.x);
 }
 
 @end

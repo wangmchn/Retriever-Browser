@@ -27,12 +27,13 @@
     self.searchBar = [[UITextField alloc] init];
     self.searchBar.font = [UIFont systemFontOfSize:14];
     self.searchBar.textColor = RGBCOLOR(22, 22, 22);
-    self.searchBar.placeholder = @"请输入网址";
+    self.searchBar.placeholder = @"百度一下, 你就知道";
     [self addSubview:self.searchBar];
     
-    [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 40, 0, 50));
-    }];
+    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_baidu"]];
+    [self addSubview:icon];
+    
+    
 }
 
 @end

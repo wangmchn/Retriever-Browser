@@ -6,7 +6,7 @@ PODS:
     - NJKWebViewProgress/ProgressView (= 0.2.3)
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
-  - WMPageController (1.2.5)
+  - WMPageController (1.2.8)
 
 DEPENDENCIES:
   - IQKeyboardManager
@@ -18,6 +18,6 @@ SPEC CHECKSUMS:
   IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
-  WMPageController: 1a071f465823128e1d03702f0fa8df5606e1c96e
+  WMPageController: 62683955974e8ac49f3f64945d59969456b6e02a
 
 COCOAPODS: 0.39.0

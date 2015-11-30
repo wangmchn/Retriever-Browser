@@ -59,7 +59,7 @@ static CGFloat const WMProgressHeight = 2.0;
         if (bgColor) {
             _bgColor = bgColor;
         } else {
-            _bgColor = [UIColor colorWithRed:172.0/255.0 green:165.0/255.0 blue:162.0/255.0 alpha:1.0];
+            _bgColor = [UIColor whiteColor];
         }
         _norSize  = norSize;
         _selSize  = selSize;
@@ -107,7 +107,7 @@ static CGFloat const WMProgressHeight = 2.0;
 
 - (void)updateTitle:(NSString *)title atIndex:(NSInteger)index andWidth:(BOOL)update {
     if (index >= self.items.count || index < 0) return;
-    WMMenuItem *item = [self viewWithTag:(kTagGap + index)];
+    WMMenuItem *item = (WMMenuItem *)[self viewWithTag:(kTagGap + index)];
     item.text = title;
     if (!update) return;
     [self resetFramesFromIndex:index];
@@ -121,6 +121,8 @@ static CGFloat const WMProgressHeight = 2.0;
 }
 
 - (void)resetFrames {
+    self.scrollView.frame = self.bounds;
+    [self refreshContenOffset];
     [self resetFramesFromIndex:0];
 }
 
@@ -128,10 +130,13 @@ static CGFloat const WMProgressHeight = 2.0;
     [self.frames removeAllObjects];
     [self calculateItemFrames];
     for (NSInteger i = index; i < self.items.count; i++) {
-        WMMenuItem *item = [self viewWithTag:(kTagGap + i)];
+        WMMenuItem *item = (WMMenuItem *)[self viewWithTag:(kTagGap + i)];
         CGRect frame = [self.frames[i] CGRectValue];
         item.frame = frame;
     }
+    CGRect frame = self.progressView.frame;
+    frame.size.width = self.scrollView.contentSize.width;
+    self.progressView.frame = frame;
     [self.progressView setNeedsDisplay];
 }
 

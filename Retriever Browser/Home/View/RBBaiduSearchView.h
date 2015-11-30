@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RBBaiduSearchView : UIView
+@interface RBBaiduSearchView : UIView <UITextFieldDelegate>
 @property (nonatomic, strong) UITextField *searchBar;
 @end

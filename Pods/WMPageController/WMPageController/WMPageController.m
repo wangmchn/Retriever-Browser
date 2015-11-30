@@ -10,12 +10,8 @@
 #import "WMPageConst.h"
 
 @interface WMPageController () {
-    CGFloat _viewHeight;
-    CGFloat _viewWidth;
-    CGFloat _viewX;
-    CGFloat _viewY;
-    CGFloat _targetX;
-    BOOL    _animate;
+    CGFloat _viewHeight, _viewWidth, _viewX, _viewY, _targetX, _superviewHeight;
+    BOOL    _animate, _hasInited;
 }
 @property (nonatomic, strong, readwrite) UIViewController *currentViewController;
 // 用于记录子控制器view的frame，用于 scrollView 上的展示的位置
@@ -182,6 +178,8 @@
     _menuItemWidth = WMMenuItemWidth;
     
     _memCache = [[NSCache alloc] init];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 // 包括宽高，子控制器视图 frame
@@ -204,7 +202,7 @@
 }
 
 - (void)addScrollView {
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    WMScrollView *scrollView = [[WMScrollView alloc] init];
     scrollView.scrollsToTop = NO;
     scrollView.pagingEnabled = YES;
     scrollView.backgroundColor = [UIColor whiteColor];
@@ -383,14 +381,20 @@
     self.view.backgroundColor = [UIColor whiteColor];
     if (!self.viewControllerClasses.count) return;
     [self addScrollView];
-//    [self addMenuView];
+    [self addMenuView];
     [self addViewControllerAtIndex:self.selectIndex];
     self.currentViewController = self.displayVC[@(self.selectIndex)];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    if (!self.viewControllerClasses.count) return;
+    
+    if (!self.viewControllerClasses) return;
+    
+    CGFloat oldSuperviewHeight = _superviewHeight;
+    _superviewHeight = self.view.frame.size.height;
+    if (_hasInited && _superviewHeight == oldSuperviewHeight) return;
+
     // 计算宽高及子控制器的视图frame
     [self calculateSize];
     CGRect scrollFrame = CGRectMake(_viewX, _viewY + self.menuHeight + self.menuViewBottom, _viewWidth, _viewHeight);
@@ -399,8 +403,11 @@
     [self.scrollView setContentOffset:CGPointMake(self.selectIndex*_viewWidth, 0)];
 
     self.currentViewController.view.frame = [self.childViewFrames[self.selectIndex] CGRectValue];
-    [self resetMenuView];
-
+//    [self resetMenuView];
+    self.menuView.frame = CGRectMake(_viewX, _viewY, _viewWidth, self.menuHeight);
+    [self.menuView resetFrames];
+    _hasInited = YES;
+    
     [self.view layoutIfNeeded];
 }
 
@@ -482,13 +489,15 @@
     _selectIndex = (int)index;
     _animate = NO;
     CGPoint targetP = CGPointMake(_viewWidth*index, 0);
-    NSLog(@"%lf",_viewWidth);
-    NSLog(@"%@",self.childViewFrames);
+    
     [self.scrollView setContentOffset:targetP animated:gap > 1 ? NO : self.pageAnimatable];
     if (gap > 1 || !self.pageAnimatable) {
         // 由于不触发 -scrollViewDidScroll: 手动处理控制器
         UIViewController *currentViewController = self.displayVC[@(currentIndex)];
-        [self removeViewController:currentViewController atIndex:currentIndex];
+        // 最好判断一下，因为在做某个项目时，currentViewController = nil
+        if (currentViewController) {
+            [self removeViewController:currentViewController atIndex:currentIndex];
+        }
         [self layoutChildViewControllers];
         self.currentViewController = self.displayVC[@(self.selectIndex)];
         [self postFullyDisplayedNotificationWithCurrentIndex:(int)index];

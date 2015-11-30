@@ -22,6 +22,11 @@
     [self createBaiduSearchView];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    NSLog(@"------------------------");
+}
+
 - (void)createBaiduSearchView {
     CGFloat searchViewX = 40;
     CGFloat searchViewY = 20;

@@ -67,7 +67,7 @@
 - (void)search:(UIButton *)sender {
     if (self.searchBar.text.length <= 0) { return; }
     [self.searchBar resignFirstResponder];
-    NSString *strURL = [NSString stringWithFormat:@"http://m.baidu.com/ssid=37e2c4e3bbb9d4dab7b3c4d5cab2c3b4551c/s?word=%@&sa=tb&ts=7338631&t_kt=0&ss=100&t_it=1&rsv_sug4=2414&oq=111", self.searchBar.text];
+    NSString *strURL = [NSString stringWithFormat:@"http://m.baidu.com/ssid=37e2c4e3bbb9d4dab7b3c4d5cab2c3b4551c/s?word=%@&sa=tb&ts=7338631&t_kt=0&ss=100&t_it=1&rsv_sug4=2414&oq=111", [self.searchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     RBWebViewController *webViewController = [[RBWebViewController alloc] initWithStrURL:strURL];
     [self.viewController.navigationController pushViewController:webViewController animated:YES];
 }

@@ -8,10 +8,12 @@
 
 #import "RBScannerController.h"
 #import <ZXingObjC/ZXingObjC.h>
+#import "RBWebViewController.h"
 
-@interface RBScannerController () <ZXCaptureDelegate>
+@interface RBScannerController () <ZXCaptureDelegate, UIAlertViewDelegate>
 @property (nonatomic, strong) ZXCapture *capture;
 @property (nonatomic, strong) UIView *scanRectView;
+@property (nonatomic, strong) NSString *content;
 @end
 
 static CGFloat const RBScanRectViewWM = 300;
@@ -32,11 +34,23 @@ static CGFloat const RBScanRectViewWM = 300;
     self.capture.layer.frame = self.view.bounds;
     [self.view.layer addSublayer:self.capture.layer];
     
-    self.scanRectView = [[UIView alloc] initWithFrame:CGRectMake((UI_SCREEN_WIDTH - RBScanRectViewWM)/2, 100, RBScanRectViewWM, RBScanRectViewWM)];
+    self.scanRectView = [[UIView alloc] initWithFrame:CGRectMake((UI_SCREEN_WIDTH - RBScanRectViewWM)/2, 120, RBScanRectViewWM, RBScanRectViewWM)];
     self.scanRectView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.scanRectView.layer.borderWidth = 1.0;
     [self.view addSubview:self.scanRectView];
     [self.view bringSubviewToFront:self.scanRectView];
+    
+    UILabel *indicatorLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.scanRectView.bottom + 50, UI_SCREEN_WIDTH, 50)];
+    indicatorLabel.text = @"二维码对准放入上面的框中";
+    indicatorLabel.textAlignment = NSTextAlignmentCenter;
+    indicatorLabel.font = [UIFont boldSystemFontOfSize:24.0f];
+    indicatorLabel.textColor = RGBCOLOR(243, 79, 74);
+    [self.view addSubview:indicatorLabel];
+    
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 84)];
+    [back setImage:[UIImage imageNamed:@"icon_footer_0"] forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:back];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,6 +67,10 @@ static CGFloat const RBScanRectViewWM = 300;
     return toInterfaceOrientation == UIInterfaceOrientationPortrait;
 }
 #pragma mark - Private Methods
+
+- (void)back:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (NSString *)barcodeFormatToString:(ZXBarcodeFormat)format {
     switch (format) {
@@ -113,15 +131,12 @@ static CGFloat const RBScanRectViewWM = 300;
 
 - (void)captureResult:(ZXCapture *)capture result:(ZXResult *)result {
     if (!result) return;
-    
     // We got a result. Display information about the result onscreen.
     NSString *formatString = [self barcodeFormatToString:result.barcodeFormat];
-    NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, result.text];
+    self.content = result.text;
+    NSString *display = [NSString stringWithFormat:@"Scanned!\n\nFormat: %@\n\nContents:\n%@", formatString, self.content];
     
     NSLog(@"%@ %@", formatString, display);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:formatString message:display delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [alert show];
-    
     // Vibrate
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
@@ -130,6 +145,24 @@ static CGFloat const RBScanRectViewWM = 300;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.capture start];
     });
+    
+    if ([self.content containsString:@"http://"] || [self.content containsString:@"https://"]) {
+        NSString *show = [NSString stringWithFormat:@"是否跳转到\n %@", self.content];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:show delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:formatString message:display delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        RBWebViewController *webViewController = [[RBWebViewController alloc] initWithStrURL:self.content];
+        self.content = nil;
+        [self.navigationController pushViewController:webViewController animated:YES];
+    }
 }
 
 @end

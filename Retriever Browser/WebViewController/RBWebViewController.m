@@ -91,6 +91,7 @@ static CGFloat const RBWebViewOriginY = 64.0;
 
 - (void)startRequest {
     NSURL *url = [NSURL URLWithString:self.strURL];
+    NSLog(@"%@", self.strURL);
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5.0];
     [self.webView loadRequest:request];
 }

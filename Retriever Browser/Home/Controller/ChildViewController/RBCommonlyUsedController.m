@@ -24,7 +24,6 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    NSLog(@"------------------------");
 }
 
 - (void)createBaiduSearchView {

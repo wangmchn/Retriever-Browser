@@ -8,6 +8,7 @@
 
 #import "RBSearchHeaderView.h"
 #import "RBWebViewController.h"
+#import "RBScannerController.h"
 
 @implementation RBSearchHeaderView
 
@@ -33,6 +34,7 @@
     [self addSubview:self.searchBar];
     
     self.QRScanner = [[UIButton alloc] init];
+    [self.QRScanner addTarget:self action:@selector(scan:) forControlEvents:UIControlEventTouchUpInside];
     [self.QRScanner setImage:[UIImage imageNamed:@"icon_scanner"] forState:UIControlStateNormal];
     [self addSubview:self.QRScanner];
     
@@ -57,6 +59,11 @@
     RBWebViewController *webViewController = [[RBWebViewController alloc] initWithStrURL:strURL];
     [self.viewController.navigationController pushViewController:webViewController animated:YES];
     [self.searchBar resignFirstResponder];
+}
+
+- (void)scan:(UIButton *)sender {
+    RBScannerController *scanner = [[RBScannerController alloc] init];
+    [self.viewController.navigationController pushViewController:scanner animated:YES];
 }
 
 @end

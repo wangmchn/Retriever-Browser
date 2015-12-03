@@ -15,6 +15,7 @@
 		4D1B0B211BF4EC3D00D7DE17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1B0B1F1BF4EC3D00D7DE17 /* LaunchScreen.storyboard */; };
 		4D1B0B2C1BF4EC3D00D7DE17 /* Retriever_BrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0B2B1BF4EC3D00D7DE17 /* Retriever_BrowserTests.m */; };
 		4D1B0B371BF4EC3D00D7DE17 /* Retriever_BrowserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1B0B361BF4EC3D00D7DE17 /* Retriever_BrowserUITests.m */; };
+		4D25D8081C0CA31000D7C584 /* RBScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D25D8071C0CA31000D7C584 /* RBScannerController.m */; };
 		4D7AC3DB1C09928F000963DA /* RBFooterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3DA1C09928F000963DA /* RBFooterControl.m */; };
 		4D7AC3F01C09A196000963DA /* RBBaiduSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3EF1C09A196000963DA /* RBBaiduSearchView.m */; };
 		4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3F31C09A518000963DA /* RBWebViewController.m */; };
@@ -59,6 +60,8 @@
 		4D1B0B321BF4EC3D00D7DE17 /* Retriever BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retriever BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1B0B361BF4EC3D00D7DE17 /* Retriever_BrowserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Retriever_BrowserUITests.m; sourceTree = "<group>"; };
 		4D1B0B381BF4EC3D00D7DE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D25D8061C0CA31000D7C584 /* RBScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBScannerController.h; path = ScannerController/RBScannerController.h; sourceTree = "<group>"; };
+		4D25D8071C0CA31000D7C584 /* RBScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBScannerController.m; path = ScannerController/RBScannerController.m; sourceTree = "<group>"; };
 		4D7AC3D91C09928F000963DA /* RBFooterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBFooterControl.h; sourceTree = "<group>"; };
 		4D7AC3DA1C09928F000963DA /* RBFooterControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBFooterControl.m; sourceTree = "<group>"; };
 		4D7AC3EE1C09A196000963DA /* RBBaiduSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBBaiduSearchView.h; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 		4D1B0B101BF4EC3D00D7DE17 /* Retriever Browser */ = {
 			isa = PBXGroup;
 			children = (
+				4D25D8051C0CA2E700D7C584 /* ScannerController */,
 				4D7AC3F11C09A4F5000963DA /* WebViewController */,
 				4DE57CE41C085416004CB064 /* Additions */,
 				4DE57CD81C08540B004CB064 /* Utils */,
@@ -182,6 +186,15 @@
 				4D1B0B381BF4EC3D00D7DE17 /* Info.plist */,
 			);
 			path = "Retriever BrowserUITests";
+			sourceTree = "<group>";
+		};
+		4D25D8051C0CA2E700D7C584 /* ScannerController */ = {
+			isa = PBXGroup;
+			children = (
+				4D25D8061C0CA31000D7C584 /* RBScannerController.h */,
+				4D25D8071C0CA31000D7C584 /* RBScannerController.m */,
+			);
+			name = ScannerController;
 			sourceTree = "<group>";
 		};
 		4D7AC3F11C09A4F5000963DA /* WebViewController */ = {
@@ -474,6 +487,7 @@
 			files = (
 				4D7AC3DB1C09928F000963DA /* RBFooterControl.m in Sources */,
 				4D1B0B161BF4EC3D00D7DE17 /* AppDelegate.m in Sources */,
+				4D25D8081C0CA31000D7C584 /* RBScannerController.m in Sources */,
 				4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */,
 				4DE57CD71C085405004CB064 /* RBSearchHeaderView.m in Sources */,
 				4D1B0B131BF4EC3D00D7DE17 /* main.m in Sources */,

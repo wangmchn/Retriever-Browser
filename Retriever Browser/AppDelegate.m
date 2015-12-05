@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RBHomePageController.h"
 #import "RBNavigationController.h"
+#import "RBWebHandlerController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,8 @@
     // Override point for customization after application launch.
     RBHomePageController *pageController = [[RBHomePageController alloc] init];
     RBNavigationController *nav = [[RBNavigationController alloc] initWithRootViewController:pageController];
-    self.window.rootViewController = nav;
+    RBWebHandlerController *handler = [[RBWebHandlerController alloc] initWithRootViewController:nav];
+    self.window.rootViewController = handler;
     return YES;
 }
 

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RBFooterControl;
+
+@protocol RBFooterDelegate <NSObject>
+
+- (void)footerControl:(RBFooterControl *)footerControl didPressButtonAtIndex:(NSInteger)index;
+
+@end
 
 @interface RBFooterControl : UIView
-
+@property (nonatomic, weak) id<RBFooterDelegate> delegate;
 @end

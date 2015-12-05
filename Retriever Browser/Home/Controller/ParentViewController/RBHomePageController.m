@@ -20,7 +20,7 @@ static CGFloat const RBHomePageViewOriginY   = 75;
 
 - (instancetype)init {
     NSArray *childViewControllerClasses = @[[RBCommonlyUsedController class], [RBWebAddressController class]];
-    NSArray *titles = @[@"常用", @"网址"];
+    NSArray *titles = @[@"网址", @"书签"];
     self = [self initWithViewControllerClasses:childViewControllerClasses andTheirTitles:titles];
     if (self) {
         self.menuBGColor = [UIColor clearColor];

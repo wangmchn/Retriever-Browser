@@ -9,7 +9,7 @@
 #import "RBWebAddressController.h"
 
 @interface RBWebAddressController ()
-
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation RBWebAddressController

@@ -18,6 +18,7 @@ static NSInteger const RBFooterButtonTagOffset = 6250;
         self.backgroundColor = [UIColor whiteColor];
         [self createDividingLine];
         [self createButtons];
+        [self createBottomView];
     }
     return self;
 }
@@ -28,12 +29,13 @@ static NSInteger const RBFooterButtonTagOffset = 6250;
     [self addSubview:line];
 }
 
+- (void)createBottomView {
+    
+}
+
 - (void)createButtons {
-    const CGFloat buttonWidth = UI_SCREEN_WIDTH / 4;
-    for (int i = 0; i < 4; i++) {
-        if (i == 2) {
-            continue;
-        }
+    const CGFloat buttonWidth = UI_SCREEN_WIDTH / 5;
+    for (int i = 0; i < 5; i++) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * buttonWidth, 0, buttonWidth, UI_TABBAR_HEIGHT)];
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"icon_footer_%d", i]];
         [button setImage:image forState:UIControlStateNormal];
@@ -45,15 +47,21 @@ static NSInteger const RBFooterButtonTagOffset = 6250;
 }
 
 - (void)buttonClicked:(UIButton *)sender {
-    UINavigationController *nav = (UINavigationController *)self.viewController.navigationController;
+    
+    UINavigationController *nav = (UINavigationController *)[self.viewController.childViewControllers lastObject];
     UIViewController *viewController = [nav.viewControllers lastObject];
     
-    if (sender.tag == RBFooterButtonTagOffset + 3) { // 书签
+    // 通知代理
+    if ([self.delegate respondsToSelector:@selector(footerControl:didPressButtonAtIndex:)]) {
+        [self.delegate footerControl:self didPressButtonAtIndex:sender.tag - RBFooterButtonTagOffset];
+    }
+    
+    if (sender.tag == RBFooterButtonTagOffset + 4) { // 书签
         
         return;
     }
+    
     if (![viewController isKindOfClass:[RBWebViewController class]]) { return; }
-
     
     RBWebViewController *webViewController = (RBWebViewController *)viewController;
     if (sender.tag == RBFooterButtonTagOffset + 0) {

@@ -19,6 +19,10 @@
 		4D7AC3DB1C09928F000963DA /* RBFooterControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3DA1C09928F000963DA /* RBFooterControl.m */; };
 		4D7AC3F01C09A196000963DA /* RBBaiduSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3EF1C09A196000963DA /* RBBaiduSearchView.m */; };
 		4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AC3F31C09A518000963DA /* RBWebViewController.m */; };
+		4D9898C31C10294A00BCBEF4 /* Website.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D9898C21C10294A00BCBEF4 /* Website.plist */; };
+		4D9898C61C102ED800BCBEF4 /* RBWebHandlerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9898C51C102ED800BCBEF4 /* RBWebHandlerController.m */; };
+		4D9898CA1C1031EE00BCBEF4 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9898C91C1031EE00BCBEF4 /* iCarousel.m */; };
+		4D9898D01C103BFA00BCBEF4 /* UIImage+viewToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9898CF1C103BFA00BCBEF4 /* UIImage+viewToImage.m */; };
 		4DE57CD41C085405004CB064 /* RBCommonlyUsedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CCB1C085405004CB064 /* RBCommonlyUsedController.m */; };
 		4DE57CD51C085405004CB064 /* RBWebAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CCD1C085405004CB064 /* RBWebAddressController.m */; };
 		4DE57CD61C085405004CB064 /* RBHomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CD01C085405004CB064 /* RBHomePageController.m */; };
@@ -68,6 +72,13 @@
 		4D7AC3EF1C09A196000963DA /* RBBaiduSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBBaiduSearchView.m; sourceTree = "<group>"; };
 		4D7AC3F21C09A518000963DA /* RBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RBWebViewController.h; path = WebViewController/RBWebViewController.h; sourceTree = "<group>"; };
 		4D7AC3F31C09A518000963DA /* RBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBWebViewController.m; path = WebViewController/RBWebViewController.m; sourceTree = "<group>"; };
+		4D9898C21C10294A00BCBEF4 /* Website.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Website.plist; sourceTree = "<group>"; };
+		4D9898C41C102ED800BCBEF4 /* RBWebHandlerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWebHandlerController.h; sourceTree = "<group>"; };
+		4D9898C51C102ED800BCBEF4 /* RBWebHandlerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWebHandlerController.m; sourceTree = "<group>"; };
+		4D9898C81C1031EE00BCBEF4 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		4D9898C91C1031EE00BCBEF4 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		4D9898CE1C103BFA00BCBEF4 /* UIImage+viewToImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+viewToImage.h"; sourceTree = "<group>"; };
+		4D9898CF1C103BFA00BCBEF4 /* UIImage+viewToImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+viewToImage.m"; sourceTree = "<group>"; };
 		4DE57CA11C083F7E004CB064 /* Retriever-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Retriever-PrefixHeader.pch"; sourceTree = "<group>"; };
 		4DE57CCA1C085405004CB064 /* RBCommonlyUsedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCommonlyUsedController.h; sourceTree = "<group>"; };
 		4DE57CCB1C085405004CB064 /* RBCommonlyUsedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCommonlyUsedController.m; sourceTree = "<group>"; };
@@ -148,6 +159,7 @@
 		4D1B0B101BF4EC3D00D7DE17 /* Retriever Browser */ = {
 			isa = PBXGroup;
 			children = (
+				4D9898C71C1031EE00BCBEF4 /* iCarousel */,
 				4D25D8051C0CA2E700D7C584 /* ScannerController */,
 				4D7AC3F11C09A4F5000963DA /* WebViewController */,
 				4DE57CE41C085416004CB064 /* Additions */,
@@ -200,10 +212,21 @@
 		4D7AC3F11C09A4F5000963DA /* WebViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D9898C41C102ED800BCBEF4 /* RBWebHandlerController.h */,
+				4D9898C51C102ED800BCBEF4 /* RBWebHandlerController.m */,
 				4D7AC3F21C09A518000963DA /* RBWebViewController.h */,
 				4D7AC3F31C09A518000963DA /* RBWebViewController.m */,
 			);
 			name = WebViewController;
+			sourceTree = "<group>";
+		};
+		4D9898C71C1031EE00BCBEF4 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				4D9898C81C1031EE00BCBEF4 /* iCarousel.h */,
+				4D9898C91C1031EE00BCBEF4 /* iCarousel.m */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		4DE57CC71C085405004CB064 /* Home */ = {
@@ -272,6 +295,8 @@
 				4DE57CEA1C08580C004CB064 /* UIViewAdditions.h */,
 				4DE57CEB1C08580C004CB064 /* UIViewAdditions.m */,
 				4DE57CE51C085416004CB064 /* UINavigation+Awesome */,
+				4D9898CE1C103BFA00BCBEF4 /* UIImage+viewToImage.h */,
+				4D9898CF1C103BFA00BCBEF4 /* UIImage+viewToImage.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -292,6 +317,7 @@
 				4D1B0B1F1BF4EC3D00D7DE17 /* LaunchScreen.storyboard */,
 				4D1B0B221BF4EC3D00D7DE17 /* Info.plist */,
 				4D1B0B121BF4EC3D00D7DE17 /* main.m */,
+				4D9898C21C10294A00BCBEF4 /* Website.plist */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -412,6 +438,7 @@
 			files = (
 				4D1B0B211BF4EC3D00D7DE17 /* LaunchScreen.storyboard in Resources */,
 				4D1B0B1E1BF4EC3D00D7DE17 /* Assets.xcassets in Resources */,
+				4D9898C31C10294A00BCBEF4 /* Website.plist in Resources */,
 				4D1B0B1C1BF4EC3D00D7DE17 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,13 +518,16 @@
 				4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */,
 				4DE57CD71C085405004CB064 /* RBSearchHeaderView.m in Sources */,
 				4D1B0B131BF4EC3D00D7DE17 /* main.m in Sources */,
+				4D9898CA1C1031EE00BCBEF4 /* iCarousel.m in Sources */,
 				4DE57CEC1C08580C004CB064 /* UIViewAdditions.m in Sources */,
 				4DE57CF21C08AAB8004CB064 /* RBNavigationController.m in Sources */,
 				4DE57CD41C085405004CB064 /* RBCommonlyUsedController.m in Sources */,
 				4D7AC3F01C09A196000963DA /* RBBaiduSearchView.m in Sources */,
 				4DE57CD61C085405004CB064 /* RBHomePageController.m in Sources */,
 				4DE57CD51C085405004CB064 /* RBWebAddressController.m in Sources */,
+				4D9898D01C103BFA00BCBEF4 /* UIImage+viewToImage.m in Sources */,
 				4DE57CE81C085416004CB064 /* UINavigationBar+Awesome.m in Sources */,
+				4D9898C61C102ED800BCBEF4 /* RBWebHandlerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

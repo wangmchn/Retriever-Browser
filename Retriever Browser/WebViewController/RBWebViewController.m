@@ -7,7 +7,6 @@
 //
 
 #import "RBWebViewController.h"
-#import "RBFooterControl.h"
 
 static CGFloat const RBWebViewOriginY = 64.0;
 
@@ -44,16 +43,11 @@ static CGFloat const RBWebViewOriginY = 64.0;
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self createSearchBar];
-    [self createFooterControl];
     [self loadWebView];
     [self startRequest];
 }
 
 #pragma mark - Private
-- (void)createFooterControl {
-    RBFooterControl *footer = [[RBFooterControl alloc] initWithFrame:CGRectMake(0, UI_SCREEN_HEIGHT - UI_TABBAR_HEIGHT, UI_SCREEN_WIDTH, UI_TABBAR_HEIGHT)];
-    [self.view addSubview:footer];
-}
 
 - (void)createSearchBar {
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 15, UI_SCREEN_WIDTH, 44)];
@@ -122,6 +116,12 @@ static CGFloat const RBWebViewOriginY = 64.0;
 }
 
 #pragma mark - <UIWebViewDelegate>
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitDiskImageCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitOfflineWebApplicationCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 #pragma mark - <NJKWebViewProgressDelegate>
 - (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {

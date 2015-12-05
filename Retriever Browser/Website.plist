@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Main</key>
+	<dict>
+		<key>新浪</key>
+		<string>http://sina.cn/?wm=3165_0003</string>
+		<key>腾讯</key>
+		<string>http://info.3g.qq.com/g/s?aid=index&amp;g_f=23849&amp;g_ut=3</string>
+		<key>百度</key>
+		<string>https://m.baidu.com/?from=1011267n</string>
+		<key>唯品会</key>
+		<string>http://m.vip.com/?f=mxmgge</string>
+		<key>京东</key>
+		<string>http://m.jd.com/?usid=RU26FBPCPDHQAYCJ3HN2N4YTX2GTLYUF4J4M6ADAJHM5XJXTCO7C5KOH3OMAV4U45VFWEHFG7CC24&amp;utm_source=kong&amp;utm_medium=tuiguang&amp;utm_campaign=t_xiaomitest_xiaomitest</string>
+		<key>搜狐</key>
+		<string>http://m.sohu.com/?_trans_=000012_xm_mz</string>
+		<key>携程</key>
+		<string>http://m.ctrip.com/html5/?sourceid=1572&amp;allianceid=20640&amp;sid=455414&amp;sepopup=4</string>
+		<key>美团</key>
+		<string>http://i.meituan.com/?nodown&amp;utm_source=waputm_xiaomiicon&amp;utm_medium=wap</string>
+		<key>凤凰</key>
+		<string>http://i.ifeng.com/</string>
+		<key>当当</key>
+		<string>http://m.dangdang.com/?unionid=P-324867m-19</string>
+		<key>淘宝</key>
+		<string>https://m.taobao.com/?ttid=11xme001</string>
+	</dict>
+</dict>
+</plist>

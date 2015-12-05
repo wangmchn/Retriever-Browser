@@ -110,7 +110,7 @@ static CGFloat const WMProgressHeight = 2.0;
     WMMenuItem *item = (WMMenuItem *)[self viewWithTag:(kTagGap + index)];
     item.text = title;
     if (!update) return;
-    [self resetFramesFromIndex:index];
+    [self resetFrames];
 }
 
 #pragma mark - Private Methods
@@ -122,8 +122,8 @@ static CGFloat const WMProgressHeight = 2.0;
 
 - (void)resetFrames {
     self.scrollView.frame = self.bounds;
-    [self refreshContenOffset];
     [self resetFramesFromIndex:0];
+    [self refreshContenOffset];
 }
 
 - (void)resetFramesFromIndex:(NSInteger)index {

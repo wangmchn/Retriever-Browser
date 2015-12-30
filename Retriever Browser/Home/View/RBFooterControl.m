@@ -8,6 +8,7 @@
 
 #import "RBFooterControl.h"
 #import "RBWebViewController.h"
+#import "RBWebHandlerController.h"
 
 static NSInteger const RBFooterButtonTagOffset = 6250;
 @implementation RBFooterControl
@@ -47,8 +48,10 @@ static NSInteger const RBFooterButtonTagOffset = 6250;
 }
 
 - (void)buttonClicked:(UIButton *)sender {
+    RBWebHandlerController *handlerController = (RBWebHandlerController *)self.viewController;
+    if (![handlerController isKindOfClass:[RBWebHandlerController class]]) return;
     
-    UINavigationController *nav = (UINavigationController *)[self.viewController.childViewControllers lastObject];
+    UINavigationController *nav = (UINavigationController *)handlerController.currentViewController;
     UIViewController *viewController = [nav.viewControllers lastObject];
     
     // 通知代理

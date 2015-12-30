@@ -14,6 +14,7 @@
 
 @interface RBWebHandlerController () <iCarouselDataSource, iCarouselDelegate, RBFooterDelegate>
 @property (nonatomic, strong) RBFooterControl *footer;
+@property (nonatomic, assign) NSInteger viewCount;
 @end
 
 @implementation RBWebHandlerController
@@ -37,16 +38,17 @@
     //create carousel
     _carousel = [[iCarousel alloc] initWithFrame:self.view.bounds];
     _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _carousel.bounces = NO;
     _carousel.type = iCarouselTypeLinear;
     _carousel.delegate = self;
     _carousel.dataSource = self;
-    _carousel.hidden = YES;
-    
     //add carousel to view
     [self.view addSubview:_carousel];
     [self.view addSubview:self.rootViewController.view];
     self.currentViewController = self.rootViewController;
     [self createFooterControl];
+    
+    self.showCarousel = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,11 +56,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Setter 
+- (void)setShowCarousel:(BOOL)showCarousel {
+    _showCarousel = showCarousel;
+    self.carousel.hidden = !showCarousel;
+}
+
 #pragma mark -
 #pragma mark iCarousel methods
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
     if (_showCarousel) {
+        self.viewCount = 0;
         return self.childViewControllers.count;
     }
     return 0;
@@ -66,10 +75,14 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view {
     CGRect viewFrame = CGRectMake(0, 0, self.view.width * 0.8, self.view.height * 0.8);
+    self.viewCount++;
+    if (self.viewCount > self.childViewControllers.count) {
+        viewFrame = CGRectZero;
+    }
     if (!view) {
         view = [[UIImageView alloc] initWithFrame:viewFrame];
     }
-    UIViewController *vc = self.childViewControllers[0];
+    UIViewController *vc = self.childViewControllers[index];
     ((UIImageView *)view).image = [UIImage createImageFromView:vc.view];
     return view;
 }
@@ -110,15 +123,18 @@
     fakeImageView.image = view.image;
     fakeImageView.center = self.view.center;
     [self.view addSubview:fakeImageView];
+    [self.view bringSubviewToFront:self.footer];
     
     [UIView animateWithDuration:0.3 animations:^{
         fakeImageView.frame = self.view.bounds;
-        _carousel.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [self.view addSubview:self.rootViewController.view];
-        [fakeImageView removeFromSuperview];
         _carousel.hidden = YES;
-        _showCarousel = NO;
+    } completion:^(BOOL finished) {
+        UIViewController *vc = self.childViewControllers[index];
+        self.currentViewController = vc;
+        [self.view addSubview:vc.view];
+        [self.view bringSubviewToFront:self.footer];
+        [fakeImageView removeFromSuperview];
+        self.showCarousel = NO;
     }];
 }
 
@@ -135,8 +151,17 @@
     }
     
     if (index == 3) {
-        
+        [self handleChildControllers];
     }
+}
+
+- (void)handleChildControllers {
+    self.showCarousel = YES;
+    [self.carousel reloadData];
+    
+    [self.currentViewController.view removeFromSuperview];
+    NSInteger index = [self.childViewControllers indexOfObject:self.currentViewController];
+    [self.carousel scrollToItemAtIndex:index animated:NO];
 }
 
 - (void)addNewWebViewController {

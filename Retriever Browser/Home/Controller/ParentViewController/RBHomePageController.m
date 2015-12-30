@@ -20,16 +20,15 @@ static CGFloat const RBHomePageViewOriginY   = 75;
 
 - (instancetype)init {
     NSArray *childViewControllerClasses = @[[RBCommonlyUsedController class], [RBWebAddressController class]];
-    NSArray *titles = @[@"网址", @"书签"];
+    NSArray *titles = @[@"常用", @"网址"];
     self = [self initWithViewControllerClasses:childViewControllerClasses andTheirTitles:titles];
     if (self) {
         self.menuBGColor = [UIColor clearColor];
         self.menuItemWidth = 60;
         self.menuViewStyle = WMMenuViewStyleDefault;
         self.titleSizeSelected = 15;
-        self.viewFrame = CGRectMake(0, RBHomePageViewOriginY, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - RBHomePageViewOriginY);
+        self.viewFrame = CGRectMake(0, RBHomePageViewOriginY, UI_SCREEN_WIDTH, UI_SCREEN_HEIGHT - RBHomePageViewOriginY - 44);
         self.pageAnimatable = YES;
-        self.menuViewStyle = WMMenuViewStyleLine;
         self.titleColorSelected = RGBCOLOR(255, 102, 51);
     }
     return self;
@@ -40,6 +39,7 @@ static CGFloat const RBHomePageViewOriginY   = 75;
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
     [self createHeaderView];
+    [self addDivideLine];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +48,12 @@ static CGFloat const RBHomePageViewOriginY   = 75;
 }
 
 #pragma mark - Private Methods
+- (void)addDivideLine {
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(UI_SCREEN_WIDTH / 2 - 0.5, 8, 1.0, self.menuHeight - 16)];
+    line.backgroundColor = RGBCOLOR(34, 34, 34);
+    [self.menuView addSubview:line];
+}
+
 - (void)createHeaderView {
     self.headerView = [[RBSearchHeaderView alloc] init];
     [self.view addSubview:self.headerView];

@@ -56,6 +56,13 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setup];
+    }
+    return self;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         [self setup];
@@ -212,7 +219,7 @@
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.bounces = self.bounces;
-    
+    scrollView.otherGestureRecognizerSimultaneously = self.otherGestureRecognizerSimultaneously;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
 }

@@ -292,9 +292,9 @@
 		4DE57CE41C085416004CB064 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				4DE57CE51C085416004CB064 /* UINavigation+Awesome */,
 				4DE57CEA1C08580C004CB064 /* UIViewAdditions.h */,
 				4DE57CEB1C08580C004CB064 /* UIViewAdditions.m */,
-				4DE57CE51C085416004CB064 /* UINavigation+Awesome */,
 				4D9898CE1C103BFA00BCBEF4 /* UIImage+viewToImage.h */,
 				4D9898CF1C103BFA00BCBEF4 /* UIImage+viewToImage.m */,
 			);

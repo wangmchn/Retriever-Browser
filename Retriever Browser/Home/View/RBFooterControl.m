@@ -24,6 +24,8 @@ static NSInteger const RBFooterButtonTagOffset = 6250;
     return self;
 }
 
+#pragma mark - Private Methods
+
 - (void)createDividingLine {
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UI_SCREEN_WIDTH, 0.5)];
     line.backgroundColor = RGBCOLOR(191, 191, 191);

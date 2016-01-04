@@ -15,6 +15,7 @@
 
 @end
 
+static CGFloat RBFooterControlHeight = 144;
 @interface RBFooterControl : UIView
 @property (nonatomic, weak) id<RBFooterDelegate> delegate;
 @end

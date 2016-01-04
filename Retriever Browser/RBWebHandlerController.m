@@ -12,11 +12,12 @@
 #import "RBHomePageController.h"
 #import "RBNavigationController.h"
 
-@interface RBWebHandlerController () <iCarouselDataSource, iCarouselDelegate, RBFooterDelegate>
+@interface RBWebHandlerController () <iCarouselDataSource, iCarouselDelegate, RBFooterDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) RBFooterControl *footer;
 @property (nonatomic, assign) NSInteger viewCount;
 @end
 
+static NSInteger kRBCarouselViewTagOffset = 6250;
 @implementation RBWebHandlerController
 
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
@@ -81,6 +82,11 @@
     }
     if (!view) {
         view = [[UIImageView alloc] initWithFrame:viewFrame];
+        view.userInteractionEnabled = YES;
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeTheView:)];
+        pan.delegate = self;
+        view.tag = index + kRBCarouselViewTagOffset;
+        [view addGestureRecognizer:pan];
     }
     UIViewController *vc = self.childViewControllers[index];
     ((UIImageView *)view).image = [UIImage createImageFromView:vc.view];
@@ -181,6 +187,25 @@
     [self.view bringSubviewToFront:self.footer];
     
     self.currentViewController = nav;
+}
+
+#pragma mark - Swipe The View
+- (void)swipeTheView:(UISwipeGestureRecognizer *)recognizer {
+    if (self.childViewControllers.count <= 1) {
+        return;
+    }
+    UIView *view = recognizer.view;
+    
+    NSInteger index = view.tag - kRBCarouselViewTagOffset;
+    UIViewController *vc = self.childViewControllers[index];
+    [vc.view removeFromSuperview];
+    [vc removeFromParentViewController];
+    [vc didMoveToParentViewController:nil];
+    [_carousel removeItemAtIndex:index animated:YES];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 @end

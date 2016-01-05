@@ -30,6 +30,7 @@
 		4DE57CE81C085416004CB064 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CE71C085416004CB064 /* UINavigationBar+Awesome.m */; };
 		4DE57CEC1C08580C004CB064 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CEB1C08580C004CB064 /* UIViewAdditions.m */; };
 		4DE57CF21C08AAB8004CB064 /* RBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE57CF11C08AAB8004CB064 /* RBNavigationController.m */; };
+		AB9577061C3BC47200E1FA02 /* RBAddMarkBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9577051C3BC47200E1FA02 /* RBAddMarkBookController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		4DE57CF11C08AAB8004CB064 /* RBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RBNavigationController.m; path = Controller/RBNavigationController.m; sourceTree = "<group>"; };
 		588ECB51FEDBA91F39FE5C9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		63387C8A054D91B730B4B144 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AB9577041C3BC47200E1FA02 /* RBAddMarkBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBAddMarkBookController.h; sourceTree = "<group>"; };
+		AB9577051C3BC47200E1FA02 /* RBAddMarkBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBAddMarkBookController.m; sourceTree = "<group>"; };
 		E9E4B029C08366BBF9B08E0A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -243,6 +246,8 @@
 		4DE57CC81C085405004CB064 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AB9577041C3BC47200E1FA02 /* RBAddMarkBookController.h */,
+				AB9577051C3BC47200E1FA02 /* RBAddMarkBookController.m */,
 				4DE57CC91C085405004CB064 /* ChildViewController */,
 				4DE57CCE1C085405004CB064 /* ParentViewController */,
 			);
@@ -517,6 +522,7 @@
 				4D25D8081C0CA31000D7C584 /* RBScannerController.m in Sources */,
 				4D7AC3F41C09A518000963DA /* RBWebViewController.m in Sources */,
 				4DE57CD71C085405004CB064 /* RBSearchHeaderView.m in Sources */,
+				AB9577061C3BC47200E1FA02 /* RBAddMarkBookController.m in Sources */,
 				4D1B0B131BF4EC3D00D7DE17 /* main.m in Sources */,
 				4D9898CA1C1031EE00BCBEF4 /* iCarousel.m in Sources */,
 				4DE57CEC1C08580C004CB064 /* UIViewAdditions.m in Sources */,
